@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="feedbackType" extends="futures-default" namespace="/feedbackType">
+		<!-- 新闻列表 -->
+		<action name="feedbackType_*" class="com.hundsun.futures.action.FeedbackTypeAction" method="{1}">
+			<result name="list">/console/FeedbackTypeManagement/feedbackTypeIndex.jsp</result>
+			<result name="del" type="redirectAction">feedbackType_list</result>
+			<result name="add" type="redirectAction">feedbackType_list</result>
+			<result name="upd" type="redirectAction">feedbackType_list</result>
+			<result name="edit">/console/FeedbackTypeManagement/editFeedbackType.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="console" extends="futures-default" namespace="/console">
+   <action name="usermsg_*" class="com.hundsun.futures.action.UserManagermentAction" method="{1}">
+   <param name="pageSize">100</param>
+   <result name="SUCCESSADMIN" >/console/usermanagement/adminmsg.jsp</result>
+   <result name="SUCCESSUSER" >/console/usermanagement/usermsg.jsp</result>
+   <result name="updateUser">/console/usermanagement/updateuser.jsp</result>
+   <result name="SUCCESSUPDATEUSER" type="chain">usermsg_findAllUser</result>
+   <result name="SUCCESSDELUSER" type="chain">usermsg_findAllUser</result>
+   <result name="SUCCESSDELADMIN" type="chain">usermsg_findAllAdmin</result>
+   <result name="updateAdmin" >/console/usermanagement/updateadmin.jsp</result>
+   <result name="addAdmin">/console/usermanagement/addadmin.jsp</result>
+   <result name="SUCCESSADDADMIN" type="chain">usermsg_findAllAdmin</result>
+   <result name="SUCCESSUPDATEADMIN" type="chain">usermsg_findAllAdmin</result>
+   </action>
+		
+	</package>
+
+</struts>
+

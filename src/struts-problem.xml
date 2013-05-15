@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+<include file="struts-user.xml"></include>
+	<package name="problem" extends="futures-default" namespace="/problem">
+		<!-- 新闻列表 -->
+		
+		<action name="problem_*" class="com.hundsun.futures.action.ProblemAction" method="{1}">
+			<result name="list">/console/ProblemManagement/problemIndex.jsp</result>
+			<result name="del" type="redirectAction">problem_list</result>
+			<result name="upd" type="redirectAction">problem_list</result>
+			
+			
+			<result name="add" type="redirectAction">problem_myList</result>
+			<result name="myList">/UserCenter/problem/problemIndex.jsp</result>
+			<result name="replyList">/console/ReplyManagement/replyIndex.jsp</result>
+			<result name="detail">/UserCenter/problem/exchangeShow.jsp</result>
+			
+		</action>
+		
+		<action name="problem_forwardAdd" class="com.hundsun.futures.action.ProblemAction" method="forwardAdd">
+			<result name="forwardAdd">/UserCenter/problem/askQuestion.jsp</result>
+            <interceptor-ref name="loginInterceptorStack"></interceptor-ref>  
+			
+		</action>
+		
+		   
+		
+	</package>
+
+</struts>
+

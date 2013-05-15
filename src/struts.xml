@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+  <include file="struts-user.xml"></include>
+   <include file="struts-index.xml"></include>
+   <include file="struts-problem.xml"></include>
+  <include file="struts-reply.xml"></include>
+   <include file="struts-feedbackType.xml"></include>
+  <include file="struts-news.xml"></include>
+  <include file="struts-column.xml"></include>
+  <include file="struts-usermanagement.xml"></include>
+  <package name="futures-default" extends="json-default">
+  <interceptors>
+       <interceptor name="loginInterceptor" class="com.hundsun.jinyb.interceptor.LoginInterceptor"></interceptor>  
+       <interceptor name="transaction" class="com.hundsun.futures.interceptor.TransactionInterceptor"></interceptor>
+        
+       <interceptor-stack name="futuresStack">
+         
+         <interceptor-ref name="transaction"></interceptor-ref>
+         <interceptor-ref name="defaultStack"></interceptor-ref>
+       </interceptor-stack>
+       
+        <interceptor-stack name="loginInterceptorStack">
+            <interceptor-ref name="loginInterceptor"></interceptor-ref> 
+        </interceptor-stack>
+  </interceptors>
+  <!-- 默认调用拦截器栈 -->
+  <default-interceptor-ref name="futuresStack"></default-interceptor-ref>
+    <global-results>
+      <result name="error">/error.jsp</result>
+      <result name="login" type="redirect">/login.jsp</result>
+    </global-results>
+   
+  </package>
+</struts>

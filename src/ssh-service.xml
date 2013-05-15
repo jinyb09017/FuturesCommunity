@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+									http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+									http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+									http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+<bean id="userService" class="com.hundsun.futures.service.impl.UserServiceImpl">
+  <property name="userDao" ref="userDao"> 
+ </property>
+</bean>
+
+<bean id="columnService" class="com.hundsun.futures.service.impl.ColumnServiceImpl">
+  <property name="columnDao" ref="columnDao"> 
+ </property>
+</bean> 
+
+<bean id="newsService" class="com.hundsun.futures.service.impl.NewsServiceImpl">
+  <property name="newsDao" ref="newsDao"> 
+ </property>
+</bean> 
+<bean id="userMsgService" class="com.hundsun.futures.service.impl.UserMsgServiceImpl">
+  <property name="userMsgDao" ref="userMsgDao"> 
+ </property>
+</bean>
+
+<bean id="feedbackTypeService" class="com.hundsun.futures.service.impl.FeedbackTypeServiceImpl">
+  <property name="feedbackTypeDao" ref="feedbackTypeDao"> 
+ </property>
+</bean>
+
+<bean id="problemService" class="com.hundsun.futures.service.impl.ProblemServiceImpl">
+  <property name="problemDao" ref="problemDao"> 
+ </property>
+</bean>
+<bean id="replyService" class="com.hundsun.futures.service.impl.ReplyServiceImpl">
+  <property name="replyDao" ref="replyDao"> 
+ </property>
+</bean>
+
+<bean id="loginInterceptor" class="com.hundsun.jinyb.interceptor.LoginInterceptor">  
+        <property name="userDao" ref="userDao" />  
+     </bean>  
+
+</beans>									

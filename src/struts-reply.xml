@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+ 
+<struts>
+<include file="struts-problem.xml"></include>
+	<package name="reply" extends="futures-default" namespace="/reply">
+		<!-- 新闻列表 -->
+		<action name="reply_*" class="com.hundsun.futures.action.ReplyAction" method="{1}">
+			<result name="list">/console/ReplyManagement/replyIndex.jsp</result>
+			<result name="del" type="redirectAction">reply_list</result>
+			<result name="upd" type="redirectAction">reply_list</result>
+			<result name="forwardAdd">/UserCenter/reply/askQuestion.jsp</result>
+			<result name="edit">/console/ReplyManagement/replyDetail.jsp</result>
+			<result name="add" type="chain">
+                   <param name="namespace">/problem</param>
+                   <param name="actionName">problem_replyList</param>
+                 <param name="method">replyList</param>
+                </result>
+			<result name="myList">/UserCenter/reply/replyIndex.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="news" extends="futures-default" namespace="/news">
+		<!-- 新闻列表 -->
+		<action name="news_*" class="com.hundsun.futures.action.NewsAction" method="{1}">
+			<result name="list">/console/NewsManagement/newsIndex.jsp</result>
+			<result name="del" type="redirectAction">news_list</result>
+			<result name="upd" type="redirectAction">news_list</result>
+			<result name="forwardAdd">/console/NewsManagement/addNews.jsp</result>
+			<result name="edit">/console/NewsManagement/editNews.jsp</result>
+			<result name="add" type="redirectAction">news_list</result>
+			<result name="detail">/NewsManagement/aticleShow.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
+

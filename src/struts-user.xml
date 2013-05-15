@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+
+	<package name="user" extends="futures-default" namespace="/user">
+	<!-- 拦截器，验证登陆使用 -->
+	  
+         
+        
+         
+       
+          
+       
+        
+        
+		<!-- 注册 -->
+		<action name="register" class="com.hundsun.futures.action.UserRegisterAction">
+			<result name="success" type="chain">
+                <param name="namespace">/problem</param>
+                   <param name="actionName">problem_myList</param>
+                 <param name="method">myList</param>
+                 
+            </result>
+        
+		</action>
+		<!-- 登录 -->
+		<action name="login" class="com.hundsun.futures.action.UserLoginAction"
+			method="login">
+			<result name="success" type="json">
+				<param name="root">goUrl</param>
+			</result>
+			
+		</action>
+		
+		<action name="myLogin" class="com.hundsun.futures.action.UserLoginAction"
+			method="login">
+			<result name="success" type="redirect">${goUrl}</result>
+			
+		</action>
+		<!-- 退出登录 -->
+		<action name="outLogin" class="com.hundsun.futures.action.UserOutLoginAction">
+			<result name="success" type="chain">
+			   <param name="namespace">/problem</param>
+                   <param name="actionName">problem_myList</param>
+                 <param name="method">myList</param>
+
+            </result>
+		</action>
+		<!-- 验证码 stream -->
+		<action name="imageCode" class="com.hundsun.futures.action.ImageAction">
+			<result name="success" type="stream">
+				<param name="inputName">imageStream</param>
+			</result>
+		</action>
+		<action name="validate" class="com.hundsun.futures.action.ImageValidateAction">
+			<result name="success" type="json"></result><!--返回的是json的数据,被前台jquery调用  -->
+		</action>
+		<!-- 邮箱验证 -->
+		<action name="validEmail" class="com.hundsun.futures.action.ValidEmailAction">
+			<result name="success" type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<!-- 获得用户ip -->
+		<action name="hit" class="com.hundsun.futures.action.HitAction">
+			<result name="success" type="plainText">
+				<param name="root">ip</param>
+			</result>
+		</action>
+		
+		<!-- 第二次邮箱验证 -->
+		<action name="checkEmail" class="com.hundsun.futures.action.VerifyEmailAction">
+			<result name="success">/user/login.jsp</result>
+			<result name="verifyCodeEmail">/user/verify_form.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+									http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+									http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+									http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<bean id="userDao" class="com.hundsun.futures.dao.impl.UserDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+<bean id="columnDao" class="com.hundsun.futures.dao.impl.ColumnDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+<bean id="newsDao" class="com.hundsun.futures.dao.impl.NewsDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+<bean id="userMsgDao" class="com.hundsun.futures.dao.impl.UserMsgDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+
+<bean id="feedbackTypeDao" class="com.hundsun.futures.dao.impl.FeedbackTypeDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+
+<bean id="problemDao" class="com.hundsun.futures.dao.impl.ProblemDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+<bean id="replyDao" class="com.hundsun.futures.dao.impl.ReplyDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="sessionFactory">
+  </property>
+</bean>
+
+</beans>									
